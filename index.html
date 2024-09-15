@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
-
+    <link rel="stylesheet" href="style.css">
     <script language="javascript">
         function validation(Form_obj) {
             if (Form_obj.name.value.length == 0) {
@@ -29,49 +29,56 @@
             }
             if (Form_obj.roll_no.value.length == 0) {
                 alert("Please fill up the remaining information!!");
-                Form_obj.no_of_peoples.focus();
+                Form_obj.roll_no.focus();
                 return false;
             }
             if (Form_obj.div.value.length == 0) {
                 alert("Please fill up the remaining information!!");
-                Form_obj.duration.focus();
+                Form_obj.div.focus();
                 return false;
             }
             
             alert("You have successfully registered!");
             return true;
         }
-    </script>
 
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent default form submission
+            if (validation(event.target)) {
+                alert("Form is being submitted!");
+                event.target.submit(); // Submit the form manually
+            }
+        }
+    </script>
 </head>
-<link rel="stylesheet" href="style.css">
 <body>
     <header class="heade">
-        <!-- <div class="left">
-             <img src="logo.jpg">
-            <div>LUXURY HOTEL</div>
-        </div> -->
-
-        <!-- <div class="mid">
-            <ul class="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="registration.html">Register</a></li>
-                <li><a href="rooms.html">Rooms</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div> -->
-
-        <!-- <div class="right">
-            <button class="btn">Log Out</button>
-            <button class="btn">Profile</button>
-        </div> -->
+        <div id="logo">
+            <img src="Logo-01.png" alt="Logo" height="120" width="100">
+            <div>
+                <h2>Sinhgad College of Engineering (SCOE)</h2>
+                <h3>Accredited by NAAC with "A" Grade</h3>
+            </div>
+        </div>
     </header>
+
+    <div class="wrapper col2">
+        <div id="topnav">
+            <ul>
+                <li><a href="HomePage.jsp">Home</a></li>
+                <li class="active"><a href="aboutCollege.html">About SCOE</a></li>
+                <li><a href="admission.html">Admission</a></li>
+                <li><a href="departments.html">Departments</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+            </ul>
+        </div>
+    </div>
     
     <div class="container">
         <h1>WELCOME in SINHGAD INSTITUTE</h1>
-        <H2>Enter Your Imformation</H2>
-        <form action="Hotel" method="post" name="entry" onsubmit="return validation(this)">
-		<input type="hidden" value="list" name="action">
+        <h2>Enter your Information</h2>
+        <form action="Hotel" method="post" name="entry" onsubmit="handleSubmit(event)">
+            <input type="hidden" value="list" name="action">
             <div class="form-group">
                 <input type="text" name="name" placeholder="Full Name">
             </div>
@@ -90,8 +97,24 @@
             <div class="form-group">
                 <input type="text" name="address" placeholder="Permanent Address">
             </div>
-            <button class="btn"><a href="registration.html"></a>Submit</button>
+            <button class="btn" type="submit">Submit</button>
         </form>
     </div>
+
+    <!-- Add JavaScript code here -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var navLinks = document.querySelectorAll('#topnav ul li a');
+
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(function(navLink) {
+                        navLink.parentElement.classList.remove('active');
+                    });
+                    this.parentElement.classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
