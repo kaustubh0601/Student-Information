@@ -6,7 +6,7 @@
     <title>Registration</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="Stylee.css">
-    <script language="javascript"> 
+    <!-- <script language="javascript"> 
         function validation(Form_obj) {
             if (Form_obj.name.value.length == 0) {
                 alert("Please fill up the remaining information!!");
@@ -50,24 +50,25 @@
                 event.target.submit(); // Submit the form manually
             }
         }
-    </script>
+    </script> -->
 </head>
 <body>
 
-    <div class="navbar">
-        <div class="navbar-container">
-            <img src="Logo-01.png" height="60px" alt="">
-            <ul class="nav-menu">
-                <li><a class="nav-item" href="HomePage.jsp">Home</a></li>
-                <li class="active"><a class="nav-item" href="aboutCollege.html">About SCOE</a></li>
-                <li><a class="nav-item" href="admission.html">Admission</a></li>
-                <li><a class="nav-item" href="departments.html">Departments</a></li>
-                <li><a class="nav-item" href="contact.html">Contact us</a></li>
+    <!-- Navbar -->
+    <!-- <div class="navbar" style="background-color: #333; overflow: hidden; padding: 10px 20px;">
+        <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+            <img src="Logo-01.png" height="60px" alt="Logo">
+            <ul class="nav-menu" style="list-style-type: none; margin: 0; padding: 0; display: flex;">
+                <li><a class="nav-item" href="HomePage.jsp" style="padding: 14px 20px; text-decoration: none; color: white;">Home</a></li>
+                <li><a class="nav-item" href="aboutCollege.html" style="padding: 14px 20px; text-decoration: none; color: white;">About SCOE</a></li>
+                <li><a class="nav-item" href="admission.html" style="padding: 14px 20px; text-decoration: none; color: white;">Admission</a></li>
+                <li><a class="nav-item" href="departments.html" style="padding: 14px 20px; text-decoration: none; color: white;">Departments</a></li>
+                <li class="active"><a class="nav-item" href="contact.html" style="padding: 14px 20px; text-decoration: none; color: white; background-color: #4CAF50;">Contact us</a></li>
             </ul>
         </div>
-    </div>
+    </div> -->
 
-    <div class="hero-section">
+    <!-- <div class="hero-section">
         <div class="hero-container">
             <div class="hero-left">
                 <img src="logo.jpg" alt="">
@@ -103,18 +104,23 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     
     
 
-    <!-- Add JavaScript code here -->
-    <script>
+        <!-- Add JavaScript code here -->
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             var navLinks = document.querySelectorAll('#topnav ul li a');
-
+    
             navLinks.forEach(function(link) {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function(event) {
+                    // Prevent default behavior if the href is '#'
+                    if (this.getAttribute('href') === '#') {
+                        event.preventDefault();
+                    }
+    
                     navLinks.forEach(function(navLink) {
                         navLink.parentElement.classList.remove('active');
                     });
@@ -122,6 +128,6 @@
                 });
             });
         });
-    </script>
-</body>
-</html>
+    </script> -->
+    </body>
+    </html>
